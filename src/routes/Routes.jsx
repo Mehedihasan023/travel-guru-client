@@ -7,16 +7,18 @@ import Destinations from '../pages/Destinations/Destinations';
 import SpotDetails from '../pages/SpotDetails/SpotDetails';
 import Destination from '../layouts/Destination';
 import Booking from '../pages/Booking/Booking';
+import HotelsLayout from '../layouts/HotelsLayout';
+import Hotels from '../pages/Hotels/Hotels';
 
 
 const router = createBrowserRouter([
     {
-        path: "/",
+        path: '/',
         element: <Main></Main>,
         children: [
             {
                 path: '/',
-                element:  <Navigate to='/spots/1'></Navigate>
+                element: <Navigate to='spots/1'></Navigate>
             },
             {
                 path: '/spots/:id',
@@ -39,6 +41,16 @@ const router = createBrowserRouter([
           }
        ]
 
+    },
+    {
+        path:'/',
+        element:<HotelsLayout></HotelsLayout>,
+        children:[
+            {
+                path:'destination/spots/:id/hotels',
+                element:<Hotels></Hotels>
+            }
+        ]
     }
 ]);
 

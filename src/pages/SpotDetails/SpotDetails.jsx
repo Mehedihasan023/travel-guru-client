@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-
+import { FaArrowRight } from 'react-icons/fa';
 const SpotDetails = () => {
     const [details,setDetails]=useState({});
     let {id} = useParams();
@@ -22,7 +22,7 @@ const SpotDetails = () => {
              <p className='text-white w-10/12'>{details.description?.slice(0, 280)}</p>
             
              <Link to={`/destination/spots/${id}`}>
-                 <button className='bg-orange-500 px-3 py-2 text-2xl rounded-xl mt-4 hover:bg-orange-600 '>Booking</button>
+                 <button className='bg-orange-500 px-8 py-4 text-2xl rounded-xl mt-4 hover:bg-orange-600 flex'>Booking <FaArrowRight className='mt-2 ml-3'/></button>
 
              </Link>
          </div>
