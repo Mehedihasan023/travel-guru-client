@@ -15,8 +15,8 @@ const Destinations = ({ spot}) => {
             }
             > <div >
 
-                    <div className=" ">
-                        <img className='w-96 h-72 rounded-xl' src={image} alt="" />
+                    <div className="relative">
+                        <img style={{height:"314px"}} className='w-96 rounded-xl' src={image} alt="" />
                         <div className="absolute top-3/4">
                             <h2 className="text-White pl-8"><span className='text-white text-4xl font-bold'>{name}</span></h2>
 

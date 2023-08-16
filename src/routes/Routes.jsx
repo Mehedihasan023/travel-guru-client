@@ -5,6 +5,8 @@ import Main from '../layouts/Main';
 import Home from '../pages/Home/Home';
 import Destinations from '../pages/Destinations/Destinations';
 import SpotDetails from '../pages/SpotDetails/SpotDetails';
+import Destination from '../layouts/Destination';
+import Booking from '../pages/Booking/Booking';
 
 
 const router = createBrowserRouter([
@@ -23,6 +25,21 @@ const router = createBrowserRouter([
 
         ]
     },
+    {
+       path:'/destination',
+       element:<Destination></Destination>,
+       children:[
+           {
+               path: '/destination',
+               element: <Navigate to='/destination/spots/1'></Navigate>
+           },
+           {
+               path:'/destination/spots/:id',
+               element:<Booking></Booking>
+          }
+       ]
+
+    }
 ]);
 
 export default router;

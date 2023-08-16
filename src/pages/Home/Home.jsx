@@ -33,34 +33,33 @@ const Home = () => {
     };
 
 
-    // absolute top - 2 / 4 left - 1 / 2 right - 0
 
     return (
-        <div className='background '>
-            <div className='background-color '>
+        <div className='background'>
+            <div className='background-color'>
 
                 <div className='overflow-x-hidden '>
 
-                    <div className='absolute top-2/4 left-1/4'>
+                    <div className='md:grid md:grid-cols-3 md:gap-4 md:absolute md:top-2/4 md:left-1/4'>
                         <SpotDetails></SpotDetails>
+
+                        <div className="carousel relative mt-4 md:mt-0 md:col-span-2 md:h-80 h-4/6">
+                            {spotsData.map((spot, index) => (
+                                <div
+                                    id={`slide${index + 1}`}
+                                    key={spot.id}
+                                    className={`carousel-item relative mr-5 ml-2 ${index === currentSlide ? 'active' : ''}`}
+                                >
+                                    <Destinations spot={spot}></Destinations>
+                                </div>
+                            ))}
+                        </div>
                     </div>
 
-                    <div className="carousel w-auto  absolute top-2/4 left-1/2 right-0 ">
-                        {spotsData.map((spot, index) => (
-                            <div
-                                id={`slide${index + 1}`}
-                                key={spot.id}
-                                className={`carousel-item relative mr-5 ml-2 ${index === currentSlide ? 'active' : ''}`}
-                            >
-                                <Destinations spot={spot}></Destinations>
-                            </div>
-                        ))}
-
-                    </div>
-                    <div className="absolute flex   left-1/2 top-3/4 mt-24 mr-2 right-5  ">
+                    <div className="absolute flex left-1/2 top-3/4 mt-8 md:mt-24  md:mr-2 right-5">
                         <a
                             href={`#slide${(currentSlide === 0 ? spotsData.length : currentSlide)}`}
-                            className="btn btn-circle mr-2"
+                            className="btn btn-circle mr-4"
                             onClick={handlePrevSlide}
                         >
                             ❮
@@ -78,15 +77,8 @@ const Home = () => {
 
             </div>
         </div>
-
     );
+
 };
 
 export default Home;
-
-// {
-//     spotsData.map(spot => <Destinations
-//         key={spot.id}
-//         spot={spot}
-//     ></Destinations>)
-// }
