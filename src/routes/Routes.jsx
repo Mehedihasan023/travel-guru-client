@@ -1,9 +1,10 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import { createBrowserRouter } from 'react-router-dom';
+import { Navigate, createBrowserRouter } from 'react-router-dom';
 import Main from '../layouts/Main';
 import Home from '../pages/Home/Home';
 import Destinations from '../pages/Destinations/Destinations';
+import SpotDetails from '../pages/SpotDetails/SpotDetails';
 
 
 const router = createBrowserRouter([
@@ -13,8 +14,12 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home></Home>
+                element:  <Navigate to='/spots/1'></Navigate>
             },
+            {
+                path: '/spots/:id',
+                element: <SpotDetails></SpotDetails>
+            }
 
         ]
     },

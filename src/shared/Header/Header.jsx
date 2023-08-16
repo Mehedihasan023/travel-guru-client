@@ -12,7 +12,7 @@ const Header = () => {
                         <img className='w-28 h-14' src={logo} alt="" />
                     </div>
                     <div>
-                        <ActiveNav to='/'>Home</ActiveNav>
+                        <ActiveNav to='/spots/1'>Home</ActiveNav>
                         <ActiveNav to='/destination'>Destination</ActiveNav>
                         <ActiveNav to='/login'>Login</ActiveNav>
                     </div>

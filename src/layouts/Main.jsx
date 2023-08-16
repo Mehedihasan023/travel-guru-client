@@ -2,6 +2,7 @@
 import React from 'react';
 import Header from '../shared/Header/Header';
 import Home from '../pages/Home/Home';
+import SpotDetails from '../pages/SpotDetails/SpotDetails';
 
 const Main = () => {
     return (

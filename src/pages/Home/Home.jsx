@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import './Home.css'
 import Destinations from '../Destinations/Destinations';
+import SpotDetails from '../SpotDetails/SpotDetails';
 
 
 const Home = () => {
@@ -32,7 +33,7 @@ const Home = () => {
     };
 
 
-// absolute top - 2 / 4 left - 1 / 2 right - 0
+    // absolute top - 2 / 4 left - 1 / 2 right - 0
 
     return (
         <div className='background '>
@@ -40,7 +41,9 @@ const Home = () => {
 
                 <div className='overflow-x-hidden '>
 
-
+                    <div className='absolute top-2/4 left-1/4'>
+                        <SpotDetails></SpotDetails>
+                    </div>
 
                     <div className="carousel w-auto  absolute top-2/4 left-1/2 right-0 ">
                         {spotsData.map((spot, index) => (
@@ -52,9 +55,9 @@ const Home = () => {
                                 <Destinations spot={spot}></Destinations>
                             </div>
                         ))}
-                      
+
                     </div>
-                    <div className="absolute flex   left-1/2 top-3/4 mt-16 mr-2 right-5  ">
+                    <div className="absolute flex   left-1/2 top-3/4 mt-24 mr-2 right-5  ">
                         <a
                             href={`#slide${(currentSlide === 0 ? spotsData.length : currentSlide)}`}
                             className="btn btn-circle mr-2"
