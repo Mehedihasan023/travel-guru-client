@@ -1,11 +1,13 @@
 /* eslint-disable no-unused-vars */
-import React, { useContext } from 'react';
+import React, { useContext} from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/Frame.svg'
 import ActiveNav from '../ActiveNav/ActiveNav';
 import { AuthContext } from '../../pages/providers/AuthProvider';
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
+     const userName =user?.displayName;
+  
     const handleLogOut = () => {
         logOut()
             .then()
@@ -21,12 +23,16 @@ const Header = () => {
                     <div>
                         <img className='w-28 h-14' src={logo} alt="" />
                     </div>
-                    <div>
+                    <div className='flex items-center'>
                         <ActiveNav to='/spots/1'>Home</ActiveNav>
                         <ActiveNav to='/destination'>Destination</ActiveNav>
 
                         {
-                            user ? <button onClick={handleLogOut} className='rounded-lg p-2 text-white mr-5'>Logout</button> :
+                            user ? <>
+                                <button onClick={handleLogOut} className='rounded-lg p-2 text-white mr-5'>Logout</button> <p className='text-white font-semibold'>{userName}</p>
+                            </>
+                            
+                             :
                                 <ActiveNav to='/login'>Login</ActiveNav>
                         }
                     </div>

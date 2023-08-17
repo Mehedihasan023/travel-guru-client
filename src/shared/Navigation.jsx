@@ -6,6 +6,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../pages/providers/AuthProvider';
 const Navigation = () => {
     const { user, logOut } = useContext(AuthContext);
+    const userName = user?.displayName;
     const handleLogOut = () => {
         logOut()
             .then()
@@ -22,7 +23,7 @@ const Navigation = () => {
                         <div>
                             <img className='w-28 h-14' src={logo} alt="" />
                         </div>
-                        <div>
+                        <div className='flex items-center'>
                             <NavLink to='/spots/1'
                                 className={({ isActive }) =>
                                     isActive
@@ -42,7 +43,7 @@ const Navigation = () => {
 
 
                             {
-                                user ? <button onClick={handleLogOut} className='rounded-lg p-2 text-black mr-5'>Logout</button> :
+                                user ? <><button onClick={handleLogOut} className='rounded-lg p-2 text-black mr-5'>Logout</button><p className='text-black font-semibold'>{userName}</p></> :
 
                                     <NavLink to='/login'
                                         className={({ isActive }) =>

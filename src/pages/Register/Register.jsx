@@ -1,13 +1,15 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
 import { toast } from 'react-hot-toast';
 const Register = () => {
+    const { createUser, updateUserData } = useContext(AuthContext);
     const [confirmPass, setConfirmPass] = useState('')
     const [error, setError] = useState(' ')
-    const { createUser } = useContext(AuthContext);
-
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/spots/1'
 
     const handleRegister = event => {
         event.preventDefault();
@@ -39,13 +41,16 @@ const Register = () => {
             setError('Please add atleast 6 characters in your password');
             return;
         }
-        createUser(email, password, firstName)
+        createUser(email, password)
+
             .then(result => {
                 const createdUser = result.user;
                 form.reset();
                 setError(' ')
+                updateUserData(createdUser,fullname)
                 toast.success('User created succesfully ')
                 console.log(createdUser)
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 console.error(error)

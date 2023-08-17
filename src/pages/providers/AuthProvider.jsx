@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, { createContext, useEffect, useState } from 'react';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 import app from "../../firebase/firebase.config.js";
 
 export const AuthContext = createContext(null);
@@ -11,9 +11,9 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    const createUser = (email, password, name) => {
+    const createUser = (email, password) => {
         setLoading(true);
-        return createUserWithEmailAndPassword(auth, email, password, name);
+        return createUserWithEmailAndPassword(auth, email, password);
     }
     const signIn = (email, password) => {
         setLoading(true);
@@ -23,6 +23,13 @@ const AuthProvider = ({ children }) => {
         setLoading(true);
         return signOut(auth);
     }
+    const updateUserData = (user, name) => {
+       setLoading(true);
+       return  updateProfile(user, {
+            displayName: name
+        })
+    }
+
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, loggedUser => {
             console.log('logged in user inside auth state observer', loggedUser);
@@ -39,6 +46,7 @@ const AuthProvider = ({ children }) => {
         user,
         loading,
         createUser,
+        updateUserData,
         signIn,
         logOut
     }
