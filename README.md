@@ -22,9 +22,9 @@ Travel Guru is a web application built using React and Firebase that makes trave
 
 
 ### Technologies Used
-React
-Firebase (Authentication)
-Express.js (Backend Data Server)
-Vercel (Deployment)
-Contributions
-Contributions are welcome! Feel free to create pull requests for fixes or enhancements.
+1. React
+2. Firebase (Authentication)
+3. Express.js (Backend Data Server)
+4. Vercel (Deployment)
+5. Contributions
+5. Contributions are welcome! Feel free to create pull requests for fixes or enhancements.

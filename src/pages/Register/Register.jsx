@@ -47,13 +47,11 @@ const Register = () => {
                 const createdUser = result.user;
                 form.reset();
                 setError(' ')
-                updateUserData(createdUser,fullname)
+                updateUserData(createdUser, fullname)
                 toast.success('User created succesfully ')
-                console.log(createdUser)
                 navigate(from, { replace: true });
             })
             .catch(error => {
-                console.error(error)
                 setError(error.message)
             })
     }

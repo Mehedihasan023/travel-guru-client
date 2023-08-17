@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { FaStar } from 'react-icons/fa';
 const Hotel = ({ hotel }) => {
     const { image, name, number_of_baths, number_of_bedrooms, number_of_beds, number_of_guests, price_per_night, ratings, ratings_number, total_price, facilities } = hotel;
- 
+
 
     return (
         <div className='w-full mb-4'>
