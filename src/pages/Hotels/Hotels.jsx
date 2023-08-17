@@ -15,14 +15,13 @@ const Hotels = () => {
             .then(data => setHotelDetails(data))
     }, [id])
 
- console.log(hotelDetails)
-
-
+    // console.log(hotelDetails)
+     
     return (
-        <div style={{height:'100vh'}} className='bg-slate-100'>
+        <div style={{ height: '100vh' }} className='bg-slate-100' >
 
-        <div className='md:grid md:grid-cols-2 md:gap-4 md:absolute md:top-1/4 md:left-24'>
-                    <div>
+            <div className='md:grid md:grid-cols-2 md:gap-4 md:absolute md:top-1/4 md:left-24'>
+                <div className='h-11/12 overflow-y-scroll'>
                     {
                         hotelDetails.map(hotel => <Hotel
                             key={hotel.id}
@@ -31,9 +30,9 @@ const Hotels = () => {
                         </Hotel>
                         )
                     }
-                    </div>
-        </div>
-         
+                </div>
+            </div>
+
         </div>
     );
 };

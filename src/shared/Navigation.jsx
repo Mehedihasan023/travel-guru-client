@@ -1,9 +1,19 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useContext } from 'react';
 import ActiveNav from './ActiveNav/ActiveNav';
 import logo from '../assets/logo.png'
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../pages/providers/AuthProvider';
 const Navigation = () => {
+    const { user, logOut } = useContext(AuthContext);
+    const handleLogOut = () => {
+        logOut()
+            .then()
+            .catch(error => console.log(error))
+    }
+
+
+
     return (
         <div>
             <div className='absolute top-3 left-5 right-5 w-10/12 mx-auto'>
@@ -16,7 +26,7 @@ const Navigation = () => {
                             <NavLink to='/spots/1'
                                 className={({ isActive }) =>
                                     isActive
-                                        ? "bg-orange-400 rounded-lg p-2 text-white mr-5" 
+                                        ? "bg-orange-400 rounded-lg p-2 text-white mr-5"
                                         : "rounded-xl mr-5 text-black"
                                 }>
                                 Home
@@ -24,19 +34,27 @@ const Navigation = () => {
                             <NavLink to='/destination'
                                 className={({ isActive }) =>
                                     isActive
-                                        ? "bg-orange-400 rounded-lg p-2 text-white mr-5" 
+                                        ? "bg-orange-400 rounded-lg p-2 text-white mr-5"
                                         : "rounded-xl mr-5 text-black"
                                 }>
                                 Destination
                             </NavLink>
-                            <NavLink to='/login'
-                                className={({ isActive }) =>
-                                    isActive
-                                        ? "bg-orange-400 rounded-lg p-2 text-white mr-5" 
-                                        : "rounded-xl mr-5 text-black"
-                                }>
-                                Login
-                            </NavLink>
+
+
+                            {
+                                user ? <button onClick={handleLogOut} className='rounded-lg p-2 text-black mr-5'>Logout</button> :
+
+                                    <NavLink to='/login'
+                                        className={({ isActive }) =>
+                                            isActive
+                                                ? "bg-orange-400 rounded-lg p-2 text-white mr-5"
+                                                : "rounded-xl mr-5 text-black"
+                                        }>
+                                        Login
+                                    </NavLink>
+
+                            }
+
 
                         </div>
                     </div>

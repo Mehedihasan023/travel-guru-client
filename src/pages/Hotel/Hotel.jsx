@@ -7,7 +7,7 @@ const Hotel = ({ hotel }) => {
     return (
         <div className='w-full mb-4'>
             <div className="card lg:card-side bg-base-100 shadow-xl">
-                <figure><img className='w-72 h-56' src={image} alt="Album" /></figure>
+                <figure><img className='md:w-72 md:h-56 w-72 h-auto' src={image} alt="Album" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{name}</h2>
                     <span className='text-gray-500'>

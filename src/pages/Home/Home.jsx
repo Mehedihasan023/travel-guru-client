@@ -21,7 +21,7 @@ const Home = () => {
 
         fetchData();
     }, []);
-    console.log(spotsData);
+    // console.log(spotsData);
 
 
     const handlePrevSlide = () => {

@@ -9,6 +9,9 @@ import Destination from '../layouts/Destination';
 import Booking from '../pages/Booking/Booking';
 import HotelsLayout from '../layouts/HotelsLayout';
 import Hotels from '../pages/Hotels/Hotels';
+import Login from '../pages/Login/Login';
+import Register from '../pages/Register/Register';
+import PrivateRoute from './PrivateRoute';
 
 
 const router = createBrowserRouter([
@@ -37,7 +40,7 @@ const router = createBrowserRouter([
            },
            {
                path:'/destination/spots/:id',
-               element:<Booking></Booking>
+               element: <PrivateRoute><Booking></Booking></PrivateRoute>
           }
        ]
 
@@ -49,6 +52,14 @@ const router = createBrowserRouter([
             {
                 path:'destination/spots/:id/hotels',
                 element:<Hotels></Hotels>
+            },
+            {
+                path:'login',
+                element:<Login></Login>
+            },
+            {
+                path:'register',
+                element:<Register></Register>
             }
         ]
     }
