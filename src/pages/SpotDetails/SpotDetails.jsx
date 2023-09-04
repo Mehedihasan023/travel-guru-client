@@ -18,7 +18,7 @@ const SpotDetails = () => {
 
      return (
          <div className='w-full text-left'>
-             <h1 className='text-6xl font-semibold text-white mb-7'>{details.name}</h1>
+             <h1 className='md:text-6xl text-2xl font-semibold text-white mb-7'>{details.name}</h1>
              <p className='text-white w-10/12'>{details.description?.slice(0, 280)}</p>
             
              <Link to={`/destination/spots/${id}`}>

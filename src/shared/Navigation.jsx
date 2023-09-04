@@ -20,7 +20,7 @@ const Navigation = () => {
             <div className='absolute top-3 left-5 right-5 w-10/12 mx-auto'>
                 <div className=''>
                     <div className='mt-8 flex justify-between items-center'>
-                        <div>
+                        <div className='md:block hidden'>
                             <img className='w-28 h-14' src={logo} alt="" />
                         </div>
                         <div className='flex items-center'>

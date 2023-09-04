@@ -35,18 +35,18 @@ const Booking = () => {
     return (
         <div className='background'>
 
-            <div className='background-color'>
+            <div className='background-color '>
 
                 {/* details and form part starts here */}
-                <div className='md:grid md:grid-cols-2 md:gap-4 md:absolute md:top-1/4 md:left-64'>
+                <div className='md:grid md:grid-cols-2 md:gap-4 md:absolute absolute md:top-1/4 top-24 md:left-64 left-0'>
 
                     <div>
-                        <div className='w-8/12 text-start md:ml-10'>
-                            <h1 className='text-6xl font-semibold text-white mb-7'>{details?.name}</h1>
-                            <p className='text-white w-10/12'>{details?.description}</p>
+                        <div className='md:w-8/12 w-11/12 text-start md:ml-10 ml-5'>
+                            <h1 className='md:text-6xl text-2xl font-semibold text-white mb-7'>{details?.name}</h1>
+                            <p className='text-white md:w-10/12 w-full md:mb-0 mb-4'>{details?.description}</p>
                         </div>
                     </div>
-                    <div className='md:ml-5  '>
+                    <div className='md:ml-5 ml-0'>
                         <form onSubmit={handleBooking} style={{ background: '#FFF', paddingLeft: '16px', width: '420px', paddingTop: '15px', paddingBottom: '15px', borderRadius: '6px' }}>
                             <label style={{ color: '#818181' }} className=' text-lg'> Origin</label>
                             <br />

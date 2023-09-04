@@ -27,7 +27,7 @@ const Hotels = () => {
             <div className='flex justify-center items-center h-11/12 w-full'>
                 <div className='mt-44 md:flex md:justify-between'>
                     <div className='h-5/6 overflow-y-scroll'>
-                        <h2 className=' font-semibold mb-4'>Stay in {destinationName?.name}</h2>
+                        <h2 className=' font-semibold mb-4 md:ml-0 ml-24'>Stay in {destinationName?.name}</h2>
                         {
                             hotelDetails.map(hotel => <Hotel
                                 key={hotel.id}

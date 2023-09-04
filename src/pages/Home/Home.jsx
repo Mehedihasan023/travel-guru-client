@@ -38,9 +38,9 @@ const Home = () => {
         <div className='background'>
             <div className='background-color'>
 
-                <div className='overflow-x-hidden '>
+                <div className='overflow-x-hidden overflow-y-scroll '>
 
-                    <div className='md:grid md:grid-cols-3 md:gap-4 md:absolute md:top-2/4 md:left-1/4'>
+                    <div className='md:grid md:grid-cols-3 md:gap-4 md:absolute absolute md:top-2/4 top-24 md:left-1/4 left-10'>
                         <SpotDetails></SpotDetails>
 
                         <div className="carousel relative mt-4 md:mt-0 md:col-span-2 md:h-80 h-4/6">
@@ -56,7 +56,7 @@ const Home = () => {
                         </div>
                     </div>
 
-                    <div className="absolute flex left-1/2 top-3/4 mt-8 md:mt-24  md:mr-2 right-5">
+                    <div className="absolute flex md:left-1/2 left-10 top-3/4 mt-36 md:mt-24  md:mr-2 right-5">
                         <a
                             href={`#slide${(currentSlide === 0 ? spotsData.length : currentSlide)}`}
                             className="btn btn-circle mr-4"
